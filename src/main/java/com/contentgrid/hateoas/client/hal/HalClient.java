@@ -9,7 +9,7 @@ import org.springframework.web.client.RestClient;
 public interface HalClient {
 
     /**
-     * Obtain a {@code RestClient} builder.
+     * Obtain a {@code HalClient.Builder}.
      */
     static HalClient.Builder builder() {
         return new DefaultHalClientBuilder();

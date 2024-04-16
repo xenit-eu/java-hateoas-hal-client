@@ -55,16 +55,11 @@ public class HalDocument {
                 .orElseThrow(() -> new NoSuchElementException("Link with name %s not found".formatted(name)));
     }
 
-    @Nullable
-    public List<HalDocument> getEmbedded(@NonNull String name) {
-        return this.embedded.get(name);
+    public Optional<List<HalDocument>> getEmbedded(@NonNull String name) {
+        return Optional.ofNullable(this.embedded.get(name));
     }
 
     public List<HalDocument> getEmbeddedOrEmpty(@NonNull String name) {
-        var result = this.getEmbedded(name);
-        if (result == null) {
-            result = List.of();
-        }
-        return result;
+        return this.getEmbedded(name).orElse(List.of());
     }
 }

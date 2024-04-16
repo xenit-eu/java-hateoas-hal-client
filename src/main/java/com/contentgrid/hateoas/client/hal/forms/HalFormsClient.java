@@ -10,7 +10,7 @@ import org.springframework.web.client.RestClient;
 public interface HalFormsClient extends HalClient {
 
     /**
-     * Obtain a {@code RestClient} builder.
+     * Obtain a {@code HalFormsClient.Builder}.
      */
     static HalFormsClient.Builder builder() {
         return new DefaultHalFormsClientBuilder();
