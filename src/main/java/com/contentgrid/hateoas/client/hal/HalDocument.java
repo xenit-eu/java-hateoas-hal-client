@@ -2,6 +2,8 @@ package com.contentgrid.hateoas.client.hal;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Feature;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -17,7 +19,8 @@ import org.springframework.lang.Nullable;
 public class HalDocument {
 
     @JsonProperty("_links")
-    Map<String, HalLink> links = new HashMap<>();
+    @JsonFormat(with = Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
+    Map<String, List<HalLink>> links = new HashMap<>();
 
     @JsonProperty("_embedded")
     protected Map<String, List<HalDocument>> embedded = new HashMap<>();
@@ -47,6 +50,18 @@ public class HalDocument {
     }
 
     public Optional<HalLink> getLink(@NonNull String name) {
+        return Optional.ofNullable(this.links.get(name))
+                .flatMap(links -> {
+                    if (links.size() == 0) {
+                        return Optional.empty();
+                    } else if (links.size() == 1) {
+                        return links.stream().findFirst();
+                    }
+                    throw new RuntimeException("Expected 1 link, but has %s links".formatted(links.size()));
+                });
+    }
+
+    public Optional<List<HalLink>> getLinks(@NonNull String name) {
         return Optional.ofNullable(this.links.get(name));
     }
 

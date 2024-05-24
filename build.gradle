@@ -28,7 +28,7 @@ dependencies {
     implementation 'org.springframework:spring-test'
 
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.skyscreamer:jsonassert'
+    testImplementation 'org.assertj:assertj-core'
     testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.10'
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
