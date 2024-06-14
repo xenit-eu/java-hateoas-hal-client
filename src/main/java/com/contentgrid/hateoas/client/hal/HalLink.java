@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public class HalLink {
 
-    @Getter
     @NonNull
     String href;
 

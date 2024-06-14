@@ -23,4 +23,4 @@ reckon {
     stageCalc = { inventory, targetNormal -> java.util.Optional.empty() }
 }
 
-rootProject.name = 'java-hateoas-hal-client'
+rootProject.name = 'java-hal-client'
