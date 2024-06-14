@@ -1,11 +1,27 @@
 plugins {
     id 'java-library'
     id 'io.freefair.lombok' version '8.6'
+    id 'jacoco'
+    id 'org.sonarqube'
 }
 
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "xenit-eu_java-hateoas-hal-client"
+        property "sonar.organization", "xenit-eu"
+        property "sonar.host.url", "https://sonarcloud.io"
     }
 }
 
