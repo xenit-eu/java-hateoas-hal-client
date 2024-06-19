@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import lombok.NonNull;
 import org.springframework.lang.Nullable;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.web.client.RestClient;
 
 public interface HalClient {
@@ -41,7 +42,7 @@ public interface HalClient {
     interface Builder {
 
         Builder restClient(RestClient restClient);
-
+        Builder clientRegistration(ClientRegistration clientRegistration);
         /**
          * Build the {@link HalClient} instance.
          */

@@ -32,7 +32,7 @@ public interface HalFormsClient extends HalClient {
     /**
      * A mutable builder for creating a {@link HalFormsClient}.
      */
-    interface Builder {
+    interface Builder extends HalClient.Builder {
         Builder restClient(RestClient restClient);
 
         /**

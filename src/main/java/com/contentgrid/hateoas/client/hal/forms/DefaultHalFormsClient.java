@@ -1,5 +1,6 @@
 package com.contentgrid.hateoas.client.hal.forms;
 
+import com.contentgrid.hateoas.client.hal.HalClient;
 import com.contentgrid.hateoas.client.hal.HalDocument;
 import com.contentgrid.hateoas.client.hal.HalRequest;
 import com.contentgrid.hateoas.client.hal.HalResponse;
